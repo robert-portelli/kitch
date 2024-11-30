@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 setup() {
-    load 'test_helpers/common-setup'
+    load 'test_helpers/_common_setup'
     _common_setup
 }
 
