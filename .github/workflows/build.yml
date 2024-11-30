@@ -34,7 +34,7 @@ jobs:
 
       # Step 4: Install BATS and Related Tools
       - name: Install BATS, bats-assert, bats-files, and bats-support
-        run: pacman -S --noconfirm bats bats-assert bats-files bats-support
+        run: pacman -S --noconfirm bats bats-assert bats-file bats-support
 
       # Step 5: Echo to show the workflow runs inside an Arch Linux container
       - name: Run commands in Arch Linux
