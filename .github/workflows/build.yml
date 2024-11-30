@@ -15,18 +15,27 @@ jobs:
       - name: Check out code
         uses: actions/checkout@v4
 
-      # Step 2: Initialize pacman keyring and update system
+      # Step 2: Restore pacman cache
+      - name: Restore Pacman Cache
+        uses: actions/cache@v3
+        with:
+          path: /var/cache/pacman/pkg
+          key: pacman-cache-${{ runner.os }}-${{ hashFiles('build.yml') }}
+          restore-keys: |
+            pacman-cache-${{ runner.os }}-
+
+      # Step 3: Initialize pacman keyring and update system
       - name: Initialize and Update Arch Linux System
         run: |
           pacman-key --init                                  # Initialize pacman keyring for signature verification
           pacman-key --populate archlinux                    # Populate the Arch Linux keyring
           pacman -Syu --noconfirm                            # Update all packages to the latest versions
 
-      # Step 3: Run some commands or install additional packages
+      # Step 4: Run some commands or install additional packages
 #      - name: Install BATS
 #        run: pacman -S --noconfirm bats
 
-      # Step 4: Echo to show the workflow runs inside an Arch Linux container
+      # Step 5: Echo to show the workflow runs inside an Arch Linux container
       - name: Run commands in Arch Linux
         run: |
           echo "This is running inside an up-to-date Arch Linux container"
