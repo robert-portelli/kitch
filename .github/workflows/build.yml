@@ -10,7 +10,7 @@ jobs:
     container:
       image: archlinux:base-devel
 
-   steps:
+  steps:
       # Step 1: Check out code from repository
       - name: Check out code
         uses: actions/checkout@v4
