@@ -1,6 +1,6 @@
 name: figure this out
 
-run-name: ${{ github.actor }} is testing out GitHub Actions 🚀
+run-name: "${{ github.actor }} is testing out GitHub Actions 🚀"
 
 on: [push]
 
@@ -10,7 +10,7 @@ jobs:
     container:
       image: archlinux:base-devel
 
-  steps:
+    steps:
       # Step 1: Check out code from repository
       - name: Check out code
         uses: actions/checkout@v4
