@@ -40,3 +40,8 @@ jobs:
       - name: Run commands in Arch Linux
         run: |
           echo "This is running inside an up-to-date Arch Linux container"
+
+      # Step 6: run the tests that always pass
+      - name: BATS that always pass
+        run: |
+          bats test/main_test.bats
